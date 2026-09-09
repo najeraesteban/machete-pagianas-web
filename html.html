@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>Apuntes de HTML</h1>
+        <p>Etiquetas, estructura y conceptos fundamentales de HTML5.</p>
+    </header>
+
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <a href="#introduccion">Introducción</a>
+        <a href="#estructura">Estructura</a>
+        <a href="#textos">Textos</a>
+        <a href="#enlaces">Enlaces</a>
+        <a href="#imagenes">Imágenes</a>
+        <a href="#listas">Listas</a>
+        <a href="#tablas">Tablas</a>
+        <a href="#formularios">Formularios</a>
+        <a href="#multimedia">Multimedia</a>
+        <a href="#semantica">Semántica</a>
+    </nav>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+
+        <!-- INTRODUCCIÓN -->
+        <section id="introduccion">
+
+            <h2>¿Qué es HTML?</h2>
+
+            <p>
+                HTML (HyperText Markup Language) es el lenguaje de marcado utilizado
+                para estructurar el contenido de las páginas web. Define elementos
+                como títulos, párrafos, enlaces, imágenes, formularios y diferentes
+                secciones de una página.
+            </p>
+
+            <p>
+                HTML no se encarga principalmente del diseño visual ni de la lógica
+                de una página. CSS se utiliza para el diseño y JavaScript para
+                agregar comportamiento e interactividad.
+            </p>
+
+        </section>
+
+
+        <!-- ESTRUCTURA BÁSICA -->
+        <section id="estructura">
+
+            <h2>Estructura Básica</h2>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    ...
+&lt;/head&gt;
+&lt;body&gt;
+    ...
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        </section>
+
+
+        <!-- TEXTOS Y TÍTULOS -->
+        <section id="textos">
+
+            <h2>Textos y Títulos</h2>
+
+            <article>
+
+                <h3>Títulos</h3>
+
+                <pre><code>&lt;h1&gt;
+&lt;h2&gt;
+&lt;h3&gt;
+&lt;h4&gt;
+&lt;h5&gt;
+&lt;h6&gt;</code></pre>
+
+                <p>
+                    Las etiquetas &lt;h1&gt; a &lt;h6&gt; se utilizan para crear títulos
+                    y subtítulos. &lt;h1&gt; representa el título principal y
+                    &lt;h6&gt; el nivel de menor importancia. Los títulos permiten
+                    organizar jerárquicamente el contenido de una página.
+                </p>
+
+                <pre><code>&lt;h1&gt;Título principal&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;h3&gt;Subtítulo de nivel 3&lt;/h3&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Párrafo</h3>
+
+                <p>
+                    La etiqueta &lt;p&gt; se utiliza para definir un párrafo de texto.
+                    Es una de las etiquetas más utilizadas para presentar contenido
+                    escrito.
+                </p>
+
+                <p>Ejemplo:</p>
+
+                <pre><code>&lt;p&gt;Este es un párrafo de ejemplo.&lt;/p&gt;</code></pre>
+
+            </article>
+
+        </section>
+
+
+        <!-- ENLACES -->
+        <section id="enlaces">
+
+            <h2>Enlaces</h2>
+
+            <article>
+
+                <h3>Enlaces Básicos</h3>
+
+                <p>
+                    La etiqueta &lt;a&gt; se utiliza para crear enlaces o hipervínculos.
+                    El atributo href indica la dirección o destino al que llevará el
+                    enlace cuando el usuario haga clic.
+                </p>
+
+                <p>Ejemplo:</p>
+
+                <pre><code>&lt;a href="pagina.html"&gt;Texto del enlace&lt;/a&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Enlaces externos</h3>
+
+                <p>
+                    Los enlaces externos permiten dirigir al usuario hacia otra
+                    página web o sitio diferente al sitio actual.
+                </p>
+
+                <pre><code>&lt;a href="https://www.google.com"&gt;Ir a Google&lt;/a&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Abrir en otra pestaña</h3>
+
+                <p>
+                    El atributo <code>target="_blank"</code> permite abrir un enlace
+                    en una nueva pestaña del navegador.
+                </p>
+
+                <pre><code>&lt;a href="https://www.google.com" target="_blank"&gt;
+    Abrir Google
+&lt;/a&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Enlaces internos</h3>
+
+                <p>
+                    Los enlaces internos permiten navegar hacia diferentes partes
+                    de una misma página utilizando el atributo <code>id</code>.
+                </p>
+
+                <pre><code>&lt;a href="#contacto"&gt;Ir a contacto&lt;/a&gt;
+
+&lt;section id="contacto"&gt;
+    &lt;h2&gt;Contacto&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
+
+            </article>
+
+        </section>
+
+
+        <!-- IMÁGENES -->
+        <section id="imagenes">
+
+            <h2>Imágenes</h2>
+
+            <article>
+
+                <h3>Etiqueta &lt;img&gt;</h3>
+
+                <p>
+                    La etiqueta &lt;img&gt; se utiliza para insertar imágenes en una
+                    página web. No necesita una etiqueta de cierre.
+                </p>
+
+                <pre><code>&lt;img src="imagen.jpg" alt="Descripción de la imagen"&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Atributos principales</h3>
+
+                <p>
+                    El atributo <code>src</code> indica la ubicación de la imagen.
+                    El atributo <code>alt</code> proporciona una descripción
+                    alternativa y es importante para la accesibilidad.
+                </p>
+
+                <pre><code>&lt;img src="foto.jpg" alt="Foto de ejemplo"&gt;</code></pre>
+
+            </article>
+
+        </section>
+
+
+        <!-- LISTAS -->
+        <section id="listas">
+
+            <h2>Listas</h2>
+
+            <article>
+
+                <h3>Lista desordenada</h3>
+
+                <p>
+                    La etiqueta &lt;ul&gt; crea una lista desordenada. Cada elemento
+                    de la lista se define mediante la etiqueta &lt;li&gt;.
+                </p>
+
+                <pre><code>&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Lista ordenada</h3>
+
+                <p>
+                    La etiqueta &lt;ol&gt; crea una lista ordenada. Los elementos
+                    aparecen numerados automáticamente.
+                </p>
+
+                <pre><code>&lt;ol&gt;
+    &lt;li&gt;Primero&lt;/li&gt;
+    &lt;li&gt;Segundo&lt;/li&gt;
+    &lt;li&gt;Tercero&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            </article>
+
+        </section>
+
+
+        <!-- TABLAS -->
+        <section id="tablas">
+
+            <h2>Tablas</h2>
+
+            <article>
+
+                <h3>Estructura de una tabla</h3>
+
+                <p>
+                    La etiqueta &lt;table&gt; se utiliza para crear tablas.
+                    &lt;tr&gt; representa una fila, &lt;th&gt; una celda de
+                    encabezado y &lt;td&gt; una celda de datos.
+                </p>
+
+                <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Nombre&lt;/th&gt;
+        &lt;th&gt;Edad&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Juan&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Encabezado y cuerpo</h3>
+
+                <p>
+                    Las etiquetas &lt;thead&gt; y &lt;tbody&gt; permiten organizar
+                    semánticamente el encabezado y el contenido de una tabla.
+                </p>
+
+                <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Producto&lt;/th&gt;
+            &lt;th&gt;Precio&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Teclado&lt;/td&gt;
+            &lt;td&gt;$20.000&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+            </article>
+
+        </section>
+
+
+        <!-- FORMULARIOS -->
+        <section id="formularios">
+
+            <h2>Formularios</h2>
+
+            <article>
+
+                <h3>Estructura básica</h3>
+
+                <p>
+                    La etiqueta &lt;form&gt; se utiliza para crear formularios que
+                    permiten recopilar información introducida por el usuario.
+                </p>
+
+                <pre><code>&lt;form&gt;
+    ...
+&lt;/form&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Label e Input</h3>
+
+                <p>
+                    La etiqueta &lt;label&gt; identifica un campo del formulario.
+                    La etiqueta &lt;input&gt; permite al usuario introducir
+                    diferentes tipos de información.
+                </p>
+
+                <pre><code>&lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+&lt;input type="text" id="nombre"&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Otros elementos</h3>
+
+                <p>
+                    HTML proporciona diferentes elementos para formularios, como
+                    &lt;textarea&gt;, &lt;select&gt;, &lt;option&gt; y &lt;button&gt;.
+                </p>
+
+                <pre><code>&lt;textarea&gt;&lt;/textarea&gt;
+
+&lt;select&gt;
+    &lt;option&gt;Opción 1&lt;/option&gt;
+    &lt;option&gt;Opción 2&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;button&gt;Enviar&lt;/button&gt;</code></pre>
+
+            </article>
+
+        </section>
+
+
+        <!-- MULTIMEDIA -->
+        <section id="multimedia">
+
+            <h2>Multimedia</h2>
+
+            <article>
+
+                <h3>Video</h3>
+
+                <p>
+                    La etiqueta &lt;video&gt; permite incorporar archivos de video
+                    directamente en una página web.
+                </p>
+
+                <pre><code>&lt;video controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Audio</h3>
+
+                <p>
+                    La etiqueta &lt;audio&gt; permite incorporar archivos de audio.
+                </p>
+
+                <pre><code>&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>Iframe</h3>
+
+                <p>
+                    La etiqueta &lt;iframe&gt; permite insertar contenido externo
+                    dentro de una página, como mapas, videos u otras páginas web.
+                </p>
+
+                <pre><code>&lt;iframe src="https://www.ejemplo.com"&gt;
+&lt;/iframe&gt;</code></pre>
+
+            </article>
+
+        </section>
+
+
+        <!-- HTML SEMÁNTICO -->
+        <section id="semantica">
+
+            <h2>HTML Semántico</h2>
+
+            <article>
+
+                <h3>¿Qué es la semántica?</h3>
+
+                <p>
+                    HTML semántico utiliza etiquetas que describen claramente el
+                    significado y la función del contenido. Esto mejora la
+                    organización, accesibilidad y comprensión de una página web.
+                </p>
+
+            </article>
+
+
+            <article>
+
+                <h3>Etiquetas principales</h3>
+
+                <p>
+                    Algunas de las etiquetas semánticas más utilizadas son
+                    &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;,
+                    &lt;article&gt;, &lt;aside&gt; y &lt;footer&gt;.
+                </p>
+
+                <pre><code>&lt;header&gt;
+    Encabezado
+&lt;/header&gt;
+
+&lt;nav&gt;
+    Navegación
+&lt;/nav&gt;
+
+&lt;main&gt;
+    Contenido principal
+
+    &lt;section&gt;
+        Sección
+    &lt;/section&gt;
+
+    &lt;article&gt;
+        Artículo
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    Pie de página
+&lt;/footer&gt;</code></pre>
+
+            </article>
+
+
+            <article>
+
+                <h3>¿Por qué utilizar HTML semántico?</h3>
+
+                <p>
+                    Las etiquetas semánticas permiten estructurar mejor el
+                    contenido, facilitan el mantenimiento del código y ayudan
+                    a los navegadores, buscadores y tecnologías de asistencia
+                    a comprender la estructura de la página.
+                </p>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 - Mi Manual de Programación</p>
+    </footer>
+
+</body>
+
+</html>

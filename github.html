@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machete Git + GitHub</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #111827, #1e293b);
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid #334155;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #f8fafc;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .intro {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .intro strong {
+            color: #38bdf8;
+        }
+
+        .section {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #f8fafc;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        h3 {
+            color: #cbd5e1;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            color: #cbd5e1;
+        }
+
+        code {
+            color: #7dd3fc;
+        }
+
+        pre {
+            background: #020617;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 18px;
+            overflow-x: auto;
+            margin: 12px 0 18px;
+        }
+
+        pre code {
+            color: #e2e8f0;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        .note {
+            background: #172554;
+            border-left: 4px solid #38bdf8;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .warning {
+            background: #451a03;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .flow {
+            background: #020617;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            font-family: monospace;
+            font-size: 18px;
+            color: #7dd3fc;
+            overflow-x: auto;
+        }
+
+        .flow span {
+            color: #f8fafc;
+            font-weight: bold;
+        }
+
+        .super {
+            border: 2px solid #38bdf8;
+            background: #0c1a2b;
+        }
+
+        .super h2 {
+            color: #38bdf8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .section {
+                padding: 18px;
+            }
+
+            pre code {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>💻 Machete de Git + GitHub</h1>
+    <p>Repaso práctico para proyectos y trabajo en equipo</p>
+</header>
+
+
+<div class="container">
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+        <p>
+            Este machete está pensado para trabajar con el flujo que utilizan
+            en la facultad:
+        </p>
+
+        <div class="flow">
+            <span>main</span>
+            →
+            <span>dev</span>
+            →
+            <span>rama de trabajo</span>
+            →
+            <span>dev</span>
+            →
+            <span>main</span>
+        </div>
+
+        <br>
+
+        <p>
+            <strong>main</strong> = versión final / estable
+        </p>
+
+        <p>
+            <strong>dev</strong> = integración de los cambios
+        </p>
+
+        <p>
+            <strong>Ramas de trabajo</strong> = donde cada integrante desarrolla
+            una funcionalidad.
+        </p>
+
+    </div>
+
+
+    <!-- 1 -->
+
+    <div class="section">
+
+        <h2>1. 🚀 Empezar un proyecto desde cero</h2>
+
+        <p>
+            Primero creamos la carpeta y entramos en ella:
+        </p>
+
+<pre><code>mkdir MiProyecto
+cd MiProyecto</code></pre>
+
+        <p>
+            Inicializamos Git:
+        </p>
+
+<pre><code>git init</code></pre>
+
+        <p>
+            Comprobamos el estado:
+        </p>
+
+<pre><code>git status</code></pre>
+
+        <p>
+            Agregamos los archivos al staging:
+        </p>
+
+<pre><code>git add .</code></pre>
+
+        <p>
+            Creamos el primer commit:
+        </p>
+
+<pre><code>git commit -m "Primer commit"</code></pre>
+
+    </div>
+
+
+    <!-- 2 -->
+
+    <div class="section">
+
+        <h2>2. 🌿 Crear la estructura de ramas</h2>
+
+        <p>
+            El flujo recomendado para la facultad:
+        </p>
+
+<pre><code>main
+ │
+ └── dev
+      ├── login
+      ├── registro
+      ├── perfil
+      └── otra-funcionalidad</code></pre>
+
+        <h3>Crear la rama dev</h3>
+
+<pre><code>git switch -c dev</code></pre>
+
+        <h3>Crear una rama de trabajo</h3>
+
+<pre><code>git switch dev
+git switch -c login</code></pre>
+
+        <p>
+            De esta manera la rama <strong>login</strong> nace a partir
+            del estado actual de <strong>dev</strong>.
+        </p>
+
+    </div>
+
+
+    <!-- 3 -->
+
+    <div class="section">
+
+        <h2>3. 👀 ¿En qué rama estoy?</h2>
+
+<pre><code>git branch</code></pre>
+
+        <p>
+            La rama actual aparece marcada con <strong>*</strong>.
+        </p>
+
+        <p>
+            También podemos usar:
+        </p>
+
+<pre><code>git status</code></pre>
+
+        <p>
+            Git mostrará algo parecido a:
+        </p>
+
+<pre><code>On branch dev</code></pre>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="section">
+
+        <h2>4. 🔄 Cambiar de rama</h2>
+
+<pre><code>git switch main
+git switch dev
+git switch login</code></pre>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="section">
+
+        <h2>5. 🌐 Subir el proyecto a GitHub</h2>
+
+        <p>
+            Primero creamos un repositorio vacío en GitHub.
+        </p>
+
+        <p>
+            Luego conectamos nuestro proyecto local:
+        </p>
+
+<pre><code>git remote add origin URL_DEL_REPOSITORIO</code></pre>
+
+        <p>
+            Ejemplo:
+        </p>
+
+<pre><code>git remote add origin https://github.com/usuario/MiProyecto.git</code></pre>
+
+        <p>
+            Comprobamos la conexión:
+        </p>
+
+<pre><code>git remote -v</code></pre>
+
+        <p>
+            Subimos main por primera vez:
+        </p>
+
+<pre><code>git branch -M main
+git push -u origin main</code></pre>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="section">
+
+        <h2>6. ⬆️ Subir cambios a GitHub</h2>
+
+<pre><code>git add .
+git commit -m "Descripción del cambio"
+git push</code></pre>
+
+        <p>
+            Si es una rama nueva y es la primera vez que la subimos:
+        </p>
+
+<pre><code>git push -u origin nombre-rama</code></pre>
+
+        <p>
+            Después normalmente alcanza con:
+        </p>
+
+<pre><code>git push</code></pre>
+
+    </div>
+
+
+    <!-- 7 -->
+
+    <div class="section">
+
+        <h2>7. 👥 Trabajar en equipo: CLONE</h2>
+
+        <p>
+            Si un compañero necesita obtener el proyecto por primera vez:
+        </p>
+
+<pre><code>git clone URL_DEL_REPOSITORIO</code></pre>
+
+        <p>
+            Después entra a la carpeta:
+        </p>
+
+<pre><code>cd MiProyecto</code></pre>
+
+        <p>
+            Y puede comprobar:
+        </p>
+
+<pre><code>git status
+git branch</code></pre>
+
+    </div>
+
+
+    <!-- 8 -->
+
+    <div class="section">
+
+        <h2>8. 💻 Trabajar desde otra PC</h2>
+
+        <p>
+            Si el proyecto ya está en GitHub, en la otra computadora:
+        </p>
+
+<pre><code>git clone URL_DEL_REPOSITORIO
+cd MiProyecto</code></pre>
+
+        <p>
+            Antes de empezar a trabajar:
+        </p>
+
+<pre><code>git pull</code></pre>
+
+        <p>
+            Después trabajamos normalmente:
+        </p>
+
+<pre><code>git add .
+git commit -m "Descripción del cambio"
+git push</code></pre>
+
+        <div class="note">
+            💡 Cuando volvés a la otra PC, hacé
+            <strong>git pull</strong> antes de continuar.
+        </div>
+
+    </div>
+
+
+    <!-- 9 -->
+
+    <div class="section">
+
+        <h2>9. ⭐ Flujo de trabajo de la facultad</h2>
+
+        <p>
+            Este es el flujo más importante para practicar:
+        </p>
+
+        <div class="flow">
+
+            <span>MAIN</span>
+            <br>
+            ↓
+            <br>
+            <span>DEV</span>
+            <br>
+            ↓
+            <br>
+            <span>RAMA DE TRABAJO</span>
+            <br>
+            ↓
+            <br>
+            <span>DEV</span>
+            <br>
+            ↓
+            <br>
+            <span>MAIN</span>
+
+        </div>
+
+
+        <h3>1️⃣ Partir desde dev</h3>
+
+<pre><code>git switch dev
+git pull
+git switch -c login</code></pre>
+
+
+        <h3>2️⃣ Trabajar en nuestra rama</h3>
+
+<pre><code># modificamos archivos...
+
+git status
+git add .
+git commit -m "Agrego login"
+git push -u origin login</code></pre>
+
+
+        <h3>3️⃣ Integrar la rama en dev</h3>
+
+<pre><code>git switch dev
+git pull
+git merge login
+git push</code></pre>
+
+
+        <p>
+            En un equipo real también puede hacerse mediante un
+            <strong>Pull Request</strong> en GitHub.
+        </p>
+
+
+        <h3>4️⃣ Cuando el proyecto está listo: dev → main</h3>
+
+<pre><code>git switch main
+git pull
+git merge dev
+git push</code></pre>
+
+    </div>
+
+
+    <!-- 10 -->
+
+    <div class="section">
+
+        <h2>10. 🔎 Ver qué cambió</h2>
+
+        <h3>Ver estado</h3>
+
+<pre><code>git status</code></pre>
+
+        <h3>Ver diferencias</h3>
+
+<pre><code>git diff</code></pre>
+
+        <h3>Ver historial</h3>
+
+<pre><code>git log</code></pre>
+
+        <h3>Historial resumido</h3>
+
+<pre><code>git log --oneline</code></pre>
+
+    </div>
+
+
+    <!-- 11 -->
+
+    <div class="section">
+
+        <h2>11. ↩️ Deshacer cambios</h2>
+
+        <p>
+            Si modificamos un archivo pero todavía NO hicimos
+            <strong>git add</strong>:
+        </p>
+
+<pre><code>git restore archivo.js</code></pre>
+
+        <p>
+            Para descartar todos los cambios no commiteados:
+        </p>
+
+<pre><code>git restore .</code></pre>
+
+        <div class="warning">
+            ⚠️ Cuidado: estos cambios se descartan.
+        </div>
+
+    </div>
+
+
+    <!-- 12 -->
+
+    <div class="section">
+
+        <h2>12. 🧹 Quitar archivos del staging</h2>
+
+<pre><code>git restore --staged .</code></pre>
+
+        <p>
+            Los archivos NO se borran.
+            Simplemente dejan de estar preparados para el commit.
+        </p>
+
+    </div>
+
+
+    <!-- 13 -->
+
+    <div class="section">
+
+        <h2>13. 🔀 Merge</h2>
+
+        <p>
+            Para incorporar una rama de trabajo a <strong>dev</strong>:
+        </p>
+
+<pre><code>git switch dev
+git pull
+git merge login
+git push</code></pre>
+
+        <p>
+            De esta manera los cambios de <strong>login</strong>
+            pasan a <strong>dev</strong>.
+        </p>
+
+    </div>
+
+
+    <!-- 14 -->
+
+    <div class="section">
+
+        <h2>14. ⚠️ Conflictos</h2>
+
+        <p>
+            Si dos personas modifican la misma parte de un archivo,
+            Git puede generar un conflicto.
+        </p>
+
+        <p>
+            Primero:
+        </p>
+
+<pre><code>git status</code></pre>
+
+        <p>
+            Resolvé el conflicto en el archivo y después:
+        </p>
+
+<pre><code>git add .
+git commit -m "Resuelvo conflicto"
+git push</code></pre>
+
+    </div>
+
+
+    <!-- 15 -->
+
+    <div class="section">
+
+        <h2>15. 🗑️ Eliminar una rama</h2>
+
+        <p>
+            Eliminar rama local:
+        </p>
+
+<pre><code>git branch -d login</code></pre>
+
+        <p>
+            Eliminar rama del repositorio remoto:
+        </p>
+
+<pre><code>git push origin --delete login</code></pre>
+
+    </div>
+
+
+    <!-- SUPER MACHETE -->
+
+    <div class="section super">
+
+        <h2>16. ⭐ SÚPER MACHETE FINAL</h2>
+
+<pre><code># INICIAR PROYECTO
+git init
+
+# ESTADO
+git status
+
+# RAMAS
+git branch
+git switch -c nombre-rama
+git switch nombre-rama
+
+# GUARDAR CAMBIOS
+git add .
+git commit -m "mensaje"
+
+# SUBIR
+git push
+
+# BAJAR CAMBIOS
+git pull
+
+# CLONAR
+git clone URL
+
+# HISTORIAL
+git log --oneline
+
+# CONECTAR CON GITHUB
+git remote add origin URL
+
+# PRIMER PUSH DE MAIN
+git branch -M main
+git push -u origin main
+
+# PRIMER PUSH DE UNA RAMA
+git push -u origin nombre-rama
+
+# MERGE A DEV
+git switch dev
+git pull
+git merge nombre-rama
+git push
+
+# MERGE DEV → MAIN
+git switch main
+git pull
+git merge dev
+git push
+
+# DESHACER CAMBIOS
+git restore archivo.js
+git restore .
+
+# SACAR DEL STAGING
+git restore --staged .
+
+# BORRAR RAMA LOCAL
+git branch -d nombre-rama
+
+# BORRAR RAMA REMOTA
+git push origin --delete nombre-rama</code></pre>
+
+    </div>
+
+
+    <!-- REGLA DE ORO -->
+
+    <div class="section">
+
+        <h2>🏆 Regla de oro</h2>
+
+        <div class="flow">
+
+            <span>main</span>
+            ←
+            <span>dev</span>
+            ←
+            <span>rama de trabajo</span>
+
+            <br><br>
+
+            Trabajás
+            →
+            commit
+            →
+            push
+
+            <br>
+
+            ↓
+
+            <br>
+
+            Rama
+            →
+            dev
+            →
+            main
+
+        </div>
+
+        <br>
+
+        <p>
+            💡 Antes de empezar a trabajar:
+        </p>
+
+<pre><code>git pull</code></pre>
+
+        <p>
+            💡 Antes de subir:
+        </p>
+
+<pre><code>git status</code></pre>
+
+        <p>
+            💡 Usá mensajes de commit que expliquen qué hiciste.
+        </p>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <p>Machete Git + GitHub · Repaso práctico</p>
+    <p>Programación · UTN</p>
+</footer>
+
+</body>
+</html>
